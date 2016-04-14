@@ -24,6 +24,7 @@ int main() {
 
 	do {
 
+		system("cls");
 		printf("Escolha sua opção:\n");
 		printf("1 para novo cadastro\n");
 		printf("2 para busca de cadastro\n");
@@ -35,21 +36,25 @@ int main() {
 
 		switch (opcao) {
 		case '1':
+			system("cls");
 
 
 
 			break;
 		case '2':
+			system("cls");
 
 
 
 			break;
 		case '3':
+			system("cls");
 
 
 
 			break;
 		case '4':
+			system("cls");
 
 
 
@@ -66,4 +71,5 @@ int main() {
 
 	system("pause");
 	return 0;
+
 }
