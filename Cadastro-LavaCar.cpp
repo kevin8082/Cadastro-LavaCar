@@ -20,7 +20,7 @@ int main() {
 
 	struct cadastro lavacar[50];
 	bool posicao[50];
-	int opcao;
+	char opcao;
 
 	do {
 
@@ -30,44 +30,39 @@ int main() {
 		printf("3 para a listagem de cadastros\n");
 		printf("4 para remover um cadastro\n");
 		printf("5 para sair\n");
-		fflush(stdin);
-		scanf("%i", opcao);
+		rewind(stdin);
+		opcao = _getch();
 
 		switch (opcao) {
-		case 1:
+		case '1':
 
 
 
 			break;
-		case 2:
+		case '2':
 
 
 
 			break;
-		case 3:
+		case '3':
 
 
 
 			break;
-		case 4:
+		case '4':
 
 
 
 			break;
 		}
 
-		if (opcao == 5) {
+		if (opcao == '5') {
 
 			break;
 
 		}
 
 	} while (true);
-
-
-
-
-
 
 	system("pause");
 	return 0;
