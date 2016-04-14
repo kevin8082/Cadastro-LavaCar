@@ -21,6 +21,7 @@ int main() {
 	struct cadastro lavacar[50];
 	bool posicao[50];
 	char opcao;
+	int num = 0;
 
 	do {
 
@@ -36,9 +37,54 @@ int main() {
 
 		switch (opcao) {
 		case '1':
+
 			system("cls");
 
+			do {
 
+				printf("Digite a posição do cadastro: ");
+				scanf_s("%i", &num);
+
+				if (posicao[num - 1] == true) {
+
+					printf("Esta posição já esta ocupada.\n");
+
+				} else {
+
+					posicao[num - 1] = true;
+					rewind(stdin);
+					printf("Digite o nome do cliente: ");
+					fgets(lavacar[num - 1].nome, 50, stdin);
+					rewind(stdin);
+					printf("Digite o telefone do cliente: ");
+					scanf_s("%c", lavacar[num - 1].telefone, 13);
+					rewind(stdin);
+					printf("Digite o cpf do cliente: ");
+					scanf_s("%c", lavacar[num - 1].cpf, 14);
+					rewind(stdin);
+					printf("Digite a placa do carro do cliente: ");
+					scanf_s("%c", lavacar[num - 1].placa, 8);
+					rewind(stdin);
+					printf("Digite o serviço prestado: ");
+					scanf_s("%c", lavacar[num - 1].servico, 50);
+					rewind(stdin);
+					printf("Digite o valor total: ");
+					scanf_s("%i", &lavacar[num - 1].valor);
+					printf("Cadastro Criado.\n");
+
+					printf("Para criar outro cadastro aperte 1 e para sair digite 2.\n");
+					rewind(stdin);
+					opcao = _getch();
+
+					if (opcao == '2') {
+
+						break;
+
+					}
+				
+				}
+
+			} while (true);
 
 			break;
 		case '2':
@@ -58,9 +104,9 @@ int main() {
 
 
 
-			break;
+			break;		
 		}
-
+		
 		if (opcao == '5') {
 
 			break;
