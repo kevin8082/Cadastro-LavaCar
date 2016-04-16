@@ -191,6 +191,6 @@ int main() {
 
 void busca(struct cadastro a, int b) {
 
-		printf("%i - %-2s - %-2s - %-2s - %-2s - %-2s - %.2f\n", b, a.nome, a.telefone, a.cpf, a.placa, a.servico, a.valor);
+	printf("%i - %-2s - %-2s - %-2s - %-2s - %-2s - %.2f\n", b, a.nome, a.telefone, a.cpf, a.placa, a.servico, a.valor);
 
 }
