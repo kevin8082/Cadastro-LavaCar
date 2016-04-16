@@ -28,7 +28,7 @@ int main() {
 	do {
 
 		system("cls");
-		printf("Escolha sua opÃ§Ã£o:\n");
+		printf("Escolha sua opção:\n");
 		printf("1 para novo cadastro\n");
 		printf("2 para busca de cadastro\n");
 		printf("3 para a listagem de cadastros\n");
@@ -43,12 +43,12 @@ int main() {
 			do {
 
 				system("cls");
-				printf("Digite o nÃºmero do cadastro: ");
+				printf("Digite o número do cadastro: ");
 				scanf_s("%i", &num);
 
 				if (posicao[num - 1] == true) {
 
-					printf("Esta posiÃ§Ã£o jÃ¡ esta ocupada.\n");
+					printf("Esta posição já esta ocupada.\n");
 
 				}
 				else {
@@ -101,7 +101,7 @@ int main() {
 					}
 
 					rewind(stdin);
-					printf("Digite o serviÃ§o prestado: ");
+					printf("Digite o serviço prestado: ");
 					fgets(lavacar[num - 1].servico, 20, stdin);
 
 					for (int i = 0; i < 20; i++)
@@ -136,12 +136,12 @@ int main() {
 			do {
 
 				system("cls");
-				printf("Digite o nÃºmero do cadastro: ");
+				printf("Digite o número do cadastro: ");
 				scanf_s("%i", &num);
 
 				if (posicao[num - 1] == true) {
 
-					printf("NÂº - Nome - Telefone - CPF - Placa do Carro - ServiÃ§o Prestado - Valor Total\n");
+					printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
 					busca(lavacar[num - 1], num);
 
 				} else {
