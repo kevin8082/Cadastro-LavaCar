@@ -50,64 +50,83 @@ int main() {
 
 					printf("Esta posição já esta ocupada.\n");
 
-				}
-				else {
+				} else {
 
 					posicao[num - 1] = true;
 					rewind(stdin);
 					printf("Digite o nome do cliente: ");
 					fgets(lavacar[num - 1].nome, 20, stdin);
 
-					for (int i = 0; i < 20; i++)
-					{
-						if (lavacar[num - 1].nome[i] == '\n')
+					for (int i = 0; i < 20; i++) {
+
+						if (lavacar[num - 1].nome[i] == '\n') {
+
 							lavacar[num - 1].nome[i] = '\0';
+
+						}
+
 					}
 
 					rewind(stdin);
 					printf("Digite o telefone do cliente: ");
 					fgets(lavacar[num - 1].telefone, 13, stdin);
 
-					for (int i = 0; i < 13; i++)
-					{
-						if (lavacar[num - 1].telefone[i] == '\n')
+					for (int i = 0; i < 13; i++) {
+
+						if (lavacar[num - 1].telefone[i] == '\n') {
+
 							lavacar[num - 1].telefone[i] = '\0';
+
+						}
+
 					}
 
 					rewind(stdin);
 					printf("Digite o cpf do cliente: ");
 					fgets(lavacar[num - 1].cpf, 15, stdin);
 
-					for (int i = 0; i < 15; i++)
-					{
+					for (int i = 0; i < 15; i++) {
 
 						if (lavacar[num - 1].cpf[i] == ',') {
+
 							lavacar[num - 1].cpf[i] = '.';
+
 						}
 
 						if (lavacar[num - 1].cpf[i] == '\n') {
+
 							lavacar[num - 1].cpf[i] = '\0';
+
 						}
+
 					}
 
 					rewind(stdin);
 					printf("Digite a placa do carro do cliente: ");
 					fgets(lavacar[num - 1].placa, 9, stdin);
 
-					for (int i = 0; i < 9; i++)
-					{
-						if (lavacar[num - 1].placa[i] == '\n')
+					for (int i = 0; i < 9; i++) {
+
+						if (lavacar[num - 1].placa[i] == '\n') {
+
 							lavacar[num - 1].placa[i] = '\0';
+
+						}
+
 					}
 
 					rewind(stdin);
 					printf("Digite o serviço prestado: ");
 					fgets(lavacar[num - 1].servico, 20, stdin);
 
-					for (int i = 0; i < 20; i++)
-					{
-						if (lavacar[num - 1].servico[i] == '\n')
+					for (int i = 0; i < 20; i++) {
+
+						if (lavacar[num - 1].servico[i] == '\n') {
+
 							lavacar[num - 1].servico[i] = '\0';
+
+						}
+
 					}
 
 					rewind(stdin);
@@ -169,6 +188,7 @@ int main() {
 
 				system("cls");
 				printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
+
 				for (int i = 0; i < 50; i++) {
 
 					if (posicao[i] == true) {
@@ -195,6 +215,65 @@ int main() {
 		case '4':
 			system("cls");
 
+			do {
+
+				printf("Digite o número do cadastro que você deseja deletar: ");
+				scanf_s("%i", &num);
+
+				if (posicao[num - 1] == true) {
+
+					for (int i = 0; i < 20; i++) {
+
+						lavacar[num - 1].nome[i] = '\0';
+
+					}
+
+					for (int i = 0; i < 13; i++) {
+
+						lavacar[num - 1].telefone[i] = '\0';
+
+					}
+
+					for (int i = 0; i < 15; i++) {
+
+						lavacar[num - 1].cpf[i] = '\0';
+
+					}
+
+					for (int i = 0; i < 9; i++) {
+
+						lavacar[num - 1].placa[i] = '\0';
+
+					}
+
+					for (int i = 0; i < 20; i++) {
+
+						lavacar[num - 1].servico[i] = '\0';
+
+					}
+
+					lavacar[num - 1].valor = 0;
+					posicao[num - 1] = false;
+
+					printf("Cadastro Deletado.\n");
+
+				} else {
+
+					printf("Cadastro Inválido.\n");
+
+				}
+
+				printf("Para deletar outro cadastro aperte 1 e para sair aperte 2.\n");
+				rewind(stdin);
+				opcao = _getch();
+
+				if (opcao == '2') {
+
+					break;
+
+				}
+
+			} while (true);
 
 			break;
 		}
