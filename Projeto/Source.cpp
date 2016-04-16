@@ -163,15 +163,37 @@ int main() {
 			} while (true);
 
 			break;
-		case '3':
-			system("cls");
+		case '3':		
 
+			do {
 
+				system("cls");
+				printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
+				for (int i = 0; i < 50; i++) {
+
+					if (posicao[i] == true) {
+
+						busca(lavacar[i], (i + 1));
+
+					}
+
+				}
+
+				printf("Aperte qualquer tecla para sair.\n");
+				rewind(stdin);
+				opcao = _getch();
+
+				if (opcao != '\n') {
+
+					break;
+
+				}
+
+			} while (true);
 
 			break;
 		case '4':
 			system("cls");
-
 
 
 			break;
