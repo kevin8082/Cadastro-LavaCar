@@ -14,7 +14,7 @@ struct cadastro {
 
 };
 
-void busca(struct cadastro a, int b, bool c);
+void busca(struct cadastro a, int b);
 
 int main() {
 
@@ -40,10 +40,9 @@ int main() {
 		switch (opcao) {
 		case '1':
 
-			system("cls");
-
 			do {
 
+				system("cls");
 				printf("Digite o número do cadastro: ");
 				scanf_s("%i", &num);
 
@@ -114,6 +113,7 @@ int main() {
 					rewind(stdin);
 					printf("Digite o valor total: ");
 					scanf_s("%f", &lavacar[num - 1].valor);
+
 					printf("Cadastro Criado.\n");
 
 					printf("Para criar outro cadastro aperte 1 e para sair aperte 2.\n");
@@ -139,8 +139,16 @@ int main() {
 				printf("Digite o número do cadastro: ");
 				scanf_s("%i", &num);
 
-				printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
-				busca(lavacar[num - 1], num, posicao[num - 1]);
+				if (posicao[num - 1] == true) {
+
+					printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
+					busca(lavacar[num - 1], num);
+
+				} else {
+
+					printf("Registro Vazio.\n");
+
+				}
 
 				printf("Para realizar outra busca aperte 1 e para sair aperte 2.\n");
 				rewind(stdin);
@@ -181,19 +189,8 @@ int main() {
 
 }
 
-void busca(struct cadastro a, int b, bool c) {
+void busca(struct cadastro a, int b) {
 
-	if (c == true) {
-		/*
-		printf("%i - %-2s", b, a.nome);
-		printf(" - %-2s", a.telefone);
-		printf(" - %-2s", a.cpf);
-		printf(" - %-2s", a.placa);
-		printf(" - %-2s", a.servico);
-		printf(" - %.2f\n", a.valor);
-		*/
 		printf("%i - %-2s - %-2s - %-2s - %-2s - %-2s - %.2f\n", b, a.nome, a.telefone, a.cpf, a.placa, a.servico, a.valor);
-
-	}
 
 }
