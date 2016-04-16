@@ -5,14 +5,16 @@
 
 struct cadastro {
 
-	char nome[50];
+	char nome[20];
 	char telefone[13];
-	char cpf[14];
-	char placa[8];
-	char servico[50];
+	char cpf[15];
+	char placa[9];
+	char servico[20];
 	float valor;
 
 };
+
+void busca(struct cadastro a, int b, bool c);
 
 int main() {
 
@@ -42,37 +44,79 @@ int main() {
 
 			do {
 
-				printf("Digite a posição do cadastro: ");
+				printf("Digite o número do cadastro: ");
 				scanf_s("%i", &num);
 
 				if (posicao[num - 1] == true) {
 
 					printf("Esta posição já esta ocupada.\n");
 
-				} else {
+				}
+				else {
 
 					posicao[num - 1] = true;
 					rewind(stdin);
 					printf("Digite o nome do cliente: ");
-					fgets(lavacar[num - 1].nome, 50, stdin);
+					fgets(lavacar[num - 1].nome, 20, stdin);
+
+					for (int i = 0; i < 20; i++)
+					{
+						if (lavacar[num - 1].nome[i] == '\n')
+							lavacar[num - 1].nome[i] = '\0';
+					}
+
 					rewind(stdin);
 					printf("Digite o telefone do cliente: ");
 					fgets(lavacar[num - 1].telefone, 13, stdin);
+
+					for (int i = 0; i < 13; i++)
+					{
+						if (lavacar[num - 1].telefone[i] == '\n')
+							lavacar[num - 1].telefone[i] = '\0';
+					}
+
 					rewind(stdin);
 					printf("Digite o cpf do cliente: ");
-					fgets(lavacar[num - 1].cpf, 14, stdin);
+					fgets(lavacar[num - 1].cpf, 15, stdin);
+
+					for (int i = 0; i < 15; i++)
+					{
+
+						if (lavacar[num - 1].cpf[i] == ',') {
+							lavacar[num - 1].cpf[i] = '.';
+						}
+
+						if (lavacar[num - 1].cpf[i] == '\n') {
+							lavacar[num - 1].cpf[i] = '\0';
+						}
+					}
+
 					rewind(stdin);
 					printf("Digite a placa do carro do cliente: ");
-					fgets(lavacar[num - 1].placa, 8, stdin);
+					fgets(lavacar[num - 1].placa, 9, stdin);
+
+					for (int i = 0; i < 9; i++)
+					{
+						if (lavacar[num - 1].placa[i] == '\n')
+							lavacar[num - 1].placa[i] = '\0';
+					}
+
 					rewind(stdin);
 					printf("Digite o serviço prestado: ");
-					fgets(lavacar[num - 1].servico, 50, stdin);
+					fgets(lavacar[num - 1].servico, 20, stdin);
+
+					for (int i = 0; i < 20; i++)
+					{
+						if (lavacar[num - 1].servico[i] == '\n')
+							lavacar[num - 1].servico[i] = '\0';
+					}
+
 					rewind(stdin);
 					printf("Digite o valor total: ");
-					scanf_s("%i", &lavacar[num - 1].valor);
+					scanf_s("%f", &lavacar[num - 1].valor);
 					printf("Cadastro Criado.\n");
 
-					printf("Para criar outro cadastro aperte 1 e para sair digite 2.\n");
+					printf("Para criar outro cadastro aperte 1 e para sair aperte 2.\n");
 					rewind(stdin);
 					opcao = _getch();
 
@@ -81,16 +125,34 @@ int main() {
 						break;
 
 					}
-				
+
 				}
 
 			} while (true);
 
 			break;
 		case '2':
-			system("cls");
 
+			do {
 
+				system("cls");
+				printf("Digite o número do cadastro: ");
+				scanf_s("%i", &num);
+
+				printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
+				busca(lavacar[num - 1], num, posicao[num - 1]);
+
+				printf("Para realizar outra busca aperte 1 e para sair aperte 2.\n");
+				rewind(stdin);
+				opcao = _getch();
+
+				if (opcao == '2') {
+
+					break;
+
+				}
+
+			} while (true);
 
 			break;
 		case '3':
@@ -104,9 +166,9 @@ int main() {
 
 
 
-			break;		
+			break;
 		}
-		
+
 		if (opcao == '5') {
 
 			break;
@@ -115,7 +177,23 @@ int main() {
 
 	} while (true);
 
-	system("pause");
 	return 0;
+
+}
+
+void busca(struct cadastro a, int b, bool c) {
+
+	if (c == true) {
+		/*
+		printf("%i - %-2s", b, a.nome);
+		printf(" - %-2s", a.telefone);
+		printf(" - %-2s", a.cpf);
+		printf(" - %-2s", a.placa);
+		printf(" - %-2s", a.servico);
+		printf(" - %.2f\n", a.valor);
+		*/
+		printf("%i - %-2s - %-2s - %-2s - %-2s - %-2s - %.2f\n", b, a.nome, a.telefone, a.cpf, a.placa, a.servico, a.valor);
+
+	}
 
 }
