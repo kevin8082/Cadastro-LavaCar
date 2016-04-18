@@ -19,11 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{4233C842-9A20-41FB-97D1-094904692D4D}</ProjectGuid>
+    <ProjectGuid>{5EC63684-6B2E-4000-AD4D-237AE9B89A79}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Projeto</RootNamespace>
+    <RootNamespace>CadastroLavaCar</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
-    <ProjectName>Cadastro-LavaCar</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
