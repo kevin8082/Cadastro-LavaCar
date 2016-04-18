@@ -43,6 +43,7 @@ int main() {
 			do {
 
 				system("cls");
+				rewind(stdin);
 				printf("Digite o número do cadastro: ");
 				scanf_s("%i", &num);
 
@@ -50,7 +51,7 @@ int main() {
 
 					printf("Esta posição já esta ocupada.\n");
 
-				} else {
+				} else if (num > 0 && num <=50) {
 
 					posicao[num - 1] = true;
 					rewind(stdin);
@@ -135,15 +136,23 @@ int main() {
 
 					printf("Cadastro Criado.\n");
 
-					printf("Para criar outro cadastro aperte 1 e para sair aperte 2.\n");
-					rewind(stdin);
-					opcao = _getch();
+				} else if (num > 50) {
 
-					if (opcao == '2') {
+					printf("O número máximo de cadastros é 50.\n");
 
-						break;
+				} else {
 
-					}
+					printf("Número inválido, digite um número entre 1 e 50.\n");
+
+				}
+
+				printf("Para criar outro cadastro aperte 1 e para sair aperte 2.\n");
+				rewind(stdin);
+				opcao = _getch();
+
+				if (opcao == '2') {
+
+					break;
 
 				}
 
@@ -158,10 +167,14 @@ int main() {
 				printf("Digite o número do cadastro: ");
 				scanf_s("%i", &num);
 
-				if (posicao[num - 1] == true) {
+				if ((num > 0 && num <=50) && posicao[num - 1] == true) {
 
 					printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
 					busca(lavacar[num - 1], num);
+
+				} else if (num > 50) {
+
+					printf("O número máximo de cadastros é 50.\n");
 
 				} else {
 
@@ -200,14 +213,8 @@ int main() {
 				}
 
 				printf("Aperte qualquer tecla para sair.\n");
-				rewind(stdin);
-				opcao = _getch();
-
-				if (opcao != '\n') {
-
-					break;
-
-				}
+				_getch();
+				break;
 
 			} while (true);
 
@@ -220,7 +227,7 @@ int main() {
 				printf("Digite o número do cadastro que você deseja deletar: ");
 				scanf_s("%i", &num);
 
-				if (posicao[num - 1] == true) {
+				if ((num > 0 && num <= 50) && posicao[num - 1] == true) {
 
 					for (int i = 0; i < 20; i++) {
 
@@ -256,6 +263,10 @@ int main() {
 					posicao[num - 1] = false;
 
 					printf("Cadastro Deletado.\n");
+
+				} else if (num > 50) {
+
+					printf("O número máximo de cadastros é 50.\n");
 
 				} else {
 
