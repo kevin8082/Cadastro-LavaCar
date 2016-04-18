@@ -51,7 +51,7 @@ int main() {
 
 					printf("Esta posição já esta ocupada.\n");
 
-				} else if (num > 0 && num <=50) {
+				} else if (num > 0 && num <= 50) {
 
 					posicao[num - 1] = true;
 					rewind(stdin);
@@ -167,7 +167,7 @@ int main() {
 				printf("Digite o número do cadastro: ");
 				scanf_s("%i", &num);
 
-				if ((num > 0 && num <=50) && posicao[num - 1] == true) {
+				if ((num > 0 && num <= 50) && posicao[num - 1] == true) {
 
 					printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
 					busca(lavacar[num - 1], num);
@@ -220,10 +220,10 @@ int main() {
 
 			break;
 			case '4':
-			system("cls");
 
 			do {
 
+				system("cls");
 				printf("Digite o número do cadastro que você deseja deletar: ");
 				scanf_s("%i", &num);
 
