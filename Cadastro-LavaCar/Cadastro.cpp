@@ -50,8 +50,7 @@ int main() {
 
 					printf("Esta posição já esta ocupada.\n");
 
-				}
-				else {
+				} else {
 
 					posicao[num - 1] = true;
 					rewind(stdin);
@@ -164,8 +163,7 @@ int main() {
 					printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
 					busca(lavacar[num - 1], num);
 
-				}
-				else {
+				} else {
 
 					printf("Registro Vazio.\n");
 
@@ -259,8 +257,7 @@ int main() {
 
 					printf("Cadastro Deletado.\n");
 
-				}
-				else {
+				} else {
 
 					printf("Cadastro Inválido.\n");
 
