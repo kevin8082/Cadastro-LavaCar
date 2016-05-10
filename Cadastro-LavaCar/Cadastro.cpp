@@ -4,12 +4,12 @@
 #include <locale.h>
 
 struct cadastro {
-	char nome[20];
-	char telefone[13];
-	char cpf[15];
-	char placa[9];
-	char servico[20];
-	float valor;
+    char nome[20];
+    char telefone[13];
+    char cpf[15];
+    char placa[9];
+    char servico[20];
+    float valor;
 };
 
 void busca(struct cadastro a, int b);
@@ -18,183 +18,187 @@ char limpa_char(char a[], int b);
 
 int main() {
 
-	setlocale(LC_ALL, "");
-	struct cadastro lavacar[50];
-	bool posicao[50] = {false};
-	char opcao;
-	int num = 0;
+    setlocale(LC_ALL, "");
+    struct cadastro lavacar[50];
+    bool posicao[50] = { false };
+    char opcao;
+    int num = 0;
 
-	do {
+    do {
 
-		system("cls");
-		printf("Escolha sua opção:\n");
-		printf("1 para novo cadastro\n");
-		printf("2 para busca de cadastro\n");
-		printf("3 para a listagem de cadastros\n");
-		printf("4 para remover um cadastro\n");
-		printf("5 para sair\n");
-		rewind(stdin);
-		opcao = _getch();
+        system("cls");
+        printf("Escolha sua opção:\n");
+        printf("1 para novo cadastro\n");
+        printf("2 para busca de cadastro\n");
+        printf("3 para a listagem de cadastros\n");
+        printf("4 para remover um cadastro\n");
+        printf("5 para sair\n");
+        rewind(stdin);
+        opcao = _getch();
 
-		switch (opcao) {
-			case '1':
+        switch (opcao) {
+            case '1':
 
-			do {
-				system("cls");
-				rewind(stdin);
-				printf("Digite o número do cadastro: ");
-				scanf_s("%i", &num);
+            do {
+                system("cls");
+                rewind(stdin);
+                printf("Digite o número do cadastro: ");
+                scanf_s("%i", &num);
 
-				if (posicao[num - 1] == true) {
-					printf("Esta posição já esta ocupada.\n");
-				} else if (num > 0 && num <= 50) {
+                if (posicao[num - 1] == true) {
+                    printf("Esta posição já esta ocupada.\n");
+                } else if (num > 0 && num <= 50) {
 
-					posicao[num - 1] = true;
-					rewind(stdin);
-					printf("Digite o nome do cliente: ");
-					fgets(lavacar[num - 1].nome, 20, stdin);
-					limpa_n(lavacar[num - 1].nome, 20);
-					rewind(stdin);
-					printf("Digite o telefone do cliente: ");
-					fgets(lavacar[num - 1].telefone, 13, stdin);
-					limpa_n(lavacar[num - 1].telefone, 13);
-					rewind(stdin);
-					printf("Digite o cpf do cliente: ");
-					fgets(lavacar[num - 1].cpf, 15, stdin);
-					limpa_n(lavacar[num - 1].cpf, 15);
-					for (int i = 0; i < 15; i++) {
-						if (lavacar[num - 1].cpf[i] == ',') {
-							lavacar[num - 1].cpf[i] = '.';
-						}
-					}
-					rewind(stdin);
-					printf("Digite a placa do carro do cliente: ");
-					fgets(lavacar[num - 1].placa, 9, stdin);
-					limpa_n(lavacar[num - 1].placa, 9);
-					rewind(stdin);
-					printf("Digite o serviço prestado: ");
-					fgets(lavacar[num - 1].servico, 20, stdin);
-					limpa_n(lavacar[num - 1].servico, 20);
-					rewind(stdin);
-					printf("Digite o valor total: ");
-					scanf_s("%f", &lavacar[num - 1].valor);
-					printf("Cadastro Criado.\n");
+                    posicao[num - 1] = true;
+                    rewind(stdin);
+                    printf("Digite o nome do cliente: ");
+                    fgets(lavacar[num - 1].nome, 20, stdin);
+                    limpa_n(lavacar[num - 1].nome, 20);
+                    rewind(stdin);
+                    printf("Digite o telefone do cliente: ");
+                    fgets(lavacar[num - 1].telefone, 13, stdin);
+                    limpa_n(lavacar[num - 1].telefone, 13);
+                    rewind(stdin);
+                    printf("Digite o cpf do cliente: ");
+                    fgets(lavacar[num - 1].cpf, 15, stdin);
+                    limpa_n(lavacar[num - 1].cpf, 15);
+                    for (int i = 0; i < 15; i++) {
+                        if (lavacar[num - 1].cpf[i] == ',') {
+                            lavacar[num - 1].cpf[i] = '.';
+                        }
+                    }
+                    rewind(stdin);
+                    printf("Digite a placa do carro do cliente: ");
+                    fgets(lavacar[num - 1].placa, 9, stdin);
+                    limpa_n(lavacar[num - 1].placa, 9);
+                    rewind(stdin);
+                    printf("Digite o serviço prestado: ");
+                    fgets(lavacar[num - 1].servico, 20, stdin);
+                    limpa_n(lavacar[num - 1].servico, 20);
+                    rewind(stdin);
+                    printf("Digite o valor total: ");
+                    scanf_s("%f", &lavacar[num - 1].valor);
+                    printf("Cadastro Criado.\n");
 
-				} else if (num > 50) {
-					printf("O número máximo de cadastros é 50.\n");
-				} else {
-					printf("Número inválido, digite um número entre 1 e 50.\n");
-				}
+                } else if (num > 50) {
+                    printf("O número máximo de cadastros é 50.\n");
+                } else {
+                    printf("Número inválido, digite um número entre 1 e 50.\n");
+                }
 
-				printf("Para criar outro cadastro aperte 1 e para sair aperte 2.\n");
-				rewind(stdin);
-				opcao = _getch();
+                printf("Para criar outro cadastro aperte 1 e para sair aperte 2.\n");
+                rewind(stdin);
+                opcao = _getch();
 
-				if (opcao == '2') {
-					break;
-				}
-			} while (true);
-			break;
-			case '2':
+                if (opcao == '2') {
+                    break;
+                }
+            } while (true);
 
-			do {
-				system("cls");
-				printf("Digite o número do cadastro: ");
-				scanf_s("%i", &num);
+            break;
+            case '2':
 
-				if ((num > 0 && num <= 50) && posicao[num - 1] == true) {
-					printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
-					busca(lavacar[num - 1], num);
-				} else if (num > 50) {
-					printf("O número máximo de cadastros é 50.\n");
-				} else {
-					printf("Registro Vazio.\n");
-				}
+            do {
+                system("cls");
+                printf("Digite o número do cadastro: ");
+                scanf_s("%i", &num);
 
-				printf("Para realizar outra busca aperte 1 e para sair aperte 2.\n");
-				rewind(stdin);
-				opcao = _getch();
+                if ((num > 0 && num <= 50) && posicao[num - 1] == true) {
+                    printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
+                    busca(lavacar[num - 1], num);
+                } else if (num > 50) {
+                    printf("O número máximo de cadastros é 50.\n");
+                } else {
+                    printf("Registro Vazio.\n");
+                }
 
-				if (opcao == '2') {
-					break;
-				}
+                printf("Para realizar outra busca aperte 1 e para sair aperte 2.\n");
+                rewind(stdin);
+                opcao = _getch();
 
-			} while (true);
-			break;
-			case '3':
+                if (opcao == '2') {
+                    break;
+                }
 
-			do {
-				system("cls");
-				printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
-				for (int i = 0; i < 50; i++) {
-					if (posicao[i] == true) {
-						busca(lavacar[i], (i + 1));
-					}
-				}
+            } while (true);
 
-				printf("Aperte qualquer tecla para sair.\n");
-				_getch();
-				break;
-			} while (true);
-			break;
-			case '4':
+            break;
+            case '3':
 
-			do {
-				system("cls");
-				printf("Digite o número do cadastro que você deseja deletar: ");
-				scanf_s("%i", &num);
-				if ((num > 0 && num <= 50) && posicao[num - 1] == true) {
+            do {
+                system("cls");
+                printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
+                for (int i = 0; i < 50; i++) {
+                    if (posicao[i] == true) {
+                        busca(lavacar[i], (i + 1));
+                    }
+                }
 
-					limpa_char(lavacar[num - 1].nome, 20);
-					limpa_char(lavacar[num - 1].telefone, 13);
-					limpa_char(lavacar[num - 1].cpf, 15);
-					limpa_char(lavacar[num - 1].placa, 9);
-					limpa_char(lavacar[num - 1].servico, 20);
-					lavacar[num - 1].valor = 0;
-					posicao[num - 1] = false;
-					printf("Cadastro Deletado.\n");
+                printf("Aperte qualquer tecla para sair.\n");
+                _getch();
+                break;
+            } while (true);
 
-				} else if (num > 50) {
-					printf("O número máximo de cadastros é 50.\n");
-				} else {
-					printf("Cadastro Inválido.\n");
-				}
+            break;
+            case '4':
 
-				printf("Para deletar outro cadastro aperte 1 e para sair aperte 2.\n");
-				rewind(stdin);
-				opcao = _getch();
-				if (opcao == '2') {
-					break;
-				}
-			} while (true);
-			break;
-		}
+            do {
+                system("cls");
+                printf("Digite o número do cadastro que você deseja deletar: ");
+                scanf_s("%i", &num);
+                if ((num > 0 && num <= 50) && posicao[num - 1] == true) {
 
-		if (opcao == '5') {
-			break;
-		}
+                    limpa_char(lavacar[num - 1].nome, 20);
+                    limpa_char(lavacar[num - 1].telefone, 13);
+                    limpa_char(lavacar[num - 1].cpf, 15);
+                    limpa_char(lavacar[num - 1].placa, 9);
+                    limpa_char(lavacar[num - 1].servico, 20);
+                    lavacar[num - 1].valor = 0;
+                    posicao[num - 1] = false;
+                    printf("Cadastro Deletado.\n");
 
-	} while (true);
+                } else if (num > 50) {
+                    printf("O número máximo de cadastros é 50.\n");
+                } else {
+                    printf("Cadastro Inválido.\n");
+                }
 
-	return 0;
+                printf("Para deletar outro cadastro aperte 1 e para sair aperte 2.\n");
+                rewind(stdin);
+                opcao = _getch();
+                if (opcao == '2') {
+                    break;
+                }
+            } while (true);
+
+            break;
+        }
+
+        if (opcao == '5') {
+            break;
+        }
+
+    } while (true);
+
+    return 0;
 }
 
 void busca(struct cadastro a, int b) {
-	printf("%i - %-2s - %-2s - %-2s - %-2s - %-2s - %.2f\n", b, a.nome, a.telefone, a.cpf, a.placa, a.servico, a.valor);
+    printf("%i - %-2s - %-2s - %-2s - %-2s - %-2s - %.2f\n", b, a.nome, a.telefone, a.cpf, a.placa, a.servico, a.valor);
 }
 
 char limpa_n(char a[], int b) {
-	for (int i = 0; i < b; i++) {
-		if (a[i] == '\n') {
-			a[i] = '\0';
-		}
-	}
-	return a[b];
+    for (int i = 0; i < b; i++) {
+        if (a[i] == '\n') {
+            a[i] = '\0';
+        }
+    }
+    return a[b];
 }
 
 char limpa_char(char a[], int b) {
-	for (int i = 0; i < b; i++) {
-		a[i] = '\0';
-	}
-	return a[b];
+    for (int i = 0; i < b; i++) {
+        a[i] = '\0';
+    }
+    return a[b];
 }
