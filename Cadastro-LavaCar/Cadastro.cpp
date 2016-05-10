@@ -274,7 +274,7 @@ void busca(struct cadastro a, int b) {
 
 char limpa_n(char a[], int b) {
 
-	for (int i = 0; i < 20; i++) {
+	for (int i = 0; i < b; i++) {
 
 		if (a[i] == '\n') {
 
