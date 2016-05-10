@@ -95,7 +95,6 @@ int main() {
 				}
 			} while (true);
 			break;
-
 			case '2':
 
 			do {
@@ -122,7 +121,6 @@ int main() {
 
 			} while (true);
 			break;
-
 			case '3':
 
 			do {
@@ -139,7 +137,6 @@ int main() {
 				break;
 			} while (true);
 			break;
-
 			case '4':
 
 			do {
