@@ -16,6 +16,7 @@ struct cadastro {
 
 void busca(struct cadastro a, int b);
 char limpa_n(char a[], int b);
+char limpa_char(char a[], int b);
 
 int main() {
 
@@ -194,35 +195,11 @@ int main() {
 
 				if ((num > 0 && num <= 50) && posicao[num - 1] == true) {
 
-					for (int i = 0; i < 20; i++) {
-
-						lavacar[num - 1].nome[i] = '\0';
-
-					}
-
-					for (int i = 0; i < 13; i++) {
-
-						lavacar[num - 1].telefone[i] = '\0';
-
-					}
-
-					for (int i = 0; i < 15; i++) {
-
-						lavacar[num - 1].cpf[i] = '\0';
-
-					}
-
-					for (int i = 0; i < 9; i++) {
-
-						lavacar[num - 1].placa[i] = '\0';
-
-					}
-
-					for (int i = 0; i < 20; i++) {
-
-						lavacar[num - 1].servico[i] = '\0';
-
-					}
+					limpa_char(lavacar[num - 1].nome, 20);
+					limpa_char(lavacar[num - 1].telefone, 13);
+					limpa_char(lavacar[num - 1].cpf, 15);
+					limpa_char(lavacar[num - 1].placa, 9);
+					limpa_char(lavacar[num - 1].servico, 20);
 
 					lavacar[num - 1].valor = 0;
 					posicao[num - 1] = false;
@@ -281,6 +258,18 @@ char limpa_n(char a[], int b) {
 			a[i] = '\0';
 
 		}
+
+	}
+
+	return a[b];
+
+}
+
+char limpa_char(char a[], int b) {
+
+	for (int i = 0; i < b; i++) {
+
+		a[i] = '\0';
 
 	}
 
