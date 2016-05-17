@@ -45,7 +45,7 @@ int main() {
                 printf("Digite o número do cadastro: ");
                 scanf_s("%i", &num);
 
-                if (posicao[num - 1] == true) {
+                if (posicao[num - 1]) {
                     printf("Esta posição já esta ocupada.\n");
                 } else if (num > 0 && num <= 50) {
 
@@ -86,14 +86,12 @@ int main() {
                     printf("Número inválido, digite um número entre 1 e 50.\n");
                 }
 
-                printf("Para criar outro cadastro aperte 1 e para sair aperte 2.\n");
-                rewind(stdin);
-                opcao = _getch();
-
-                if (opcao == '2') {
-                    break;
-                }
-            } while (true);
+                do {
+                    printf("Para criar outro cadastro aperte 1 e para sair aperte 2.\n");
+                    rewind(stdin);
+                    opcao = _getch();
+                } while (opcao != '1', opcao != '2');
+            } while (opcao != '2');
 
             break;
             case '2':
@@ -103,7 +101,7 @@ int main() {
                 printf("Digite o número do cadastro: ");
                 scanf_s("%i", &num);
 
-                if ((num > 0 && num <= 50) && posicao[num - 1] == true) {
+                if ((num > 0 && num <= 50) && posicao[num - 1]) {
                     printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
                     busca(lavacar[num - 1], num);
                 } else if (num > 50) {
@@ -112,15 +110,12 @@ int main() {
                     printf("Registro Vazio.\n");
                 }
 
-                printf("Para realizar outra busca aperte 1 e para sair aperte 2.\n");
-                rewind(stdin);
-                opcao = _getch();
-
-                if (opcao == '2') {
-                    break;
-                }
-
-            } while (true);
+                do {
+                    printf("Para realizar outra busca aperte 1 e para sair aperte 2.\n");
+                    rewind(stdin);
+                    opcao = _getch();
+                } while (opcao != '1', opcao != '2');
+            } while (opcao != '2');
 
             break;
             case '3':
@@ -129,7 +124,7 @@ int main() {
                 system("cls");
                 printf("Nº - Nome - Telefone - CPF - Placa do Carro - Serviço Prestado - Valor Total\n");
                 for (int i = 0; i < 50; i++) {
-                    if (posicao[i] == true) {
+                    if (posicao[i]) {
                         busca(lavacar[i], (i + 1));
                     }
                 }
@@ -146,7 +141,7 @@ int main() {
                 system("cls");
                 printf("Digite o número do cadastro que você deseja deletar: ");
                 scanf_s("%i", &num);
-                if ((num > 0 && num <= 50) && posicao[num - 1] == true) {
+                if ((num > 0 && num <= 50) && posicao[num - 1]) {
 
                     limpa_char(lavacar[num - 1].nome, 20);
                     limpa_char(lavacar[num - 1].telefone, 13);
@@ -160,27 +155,23 @@ int main() {
                 } else if (num > 50) {
                     printf("O número máximo de cadastros é 50.\n");
                 } else {
-                    printf("Cadastro Inválido.\n");
+                    printf("Cadastro Inválido ou Vazio.\n");
                 }
 
-                printf("Para deletar outro cadastro aperte 1 e para sair aperte 2.\n");
-                rewind(stdin);
-                opcao = _getch();
-                if (opcao == '2') {
-                    break;
-                }
-            } while (true);
+                do {
+                    printf("Para deletar outro cadastro aperte 1 e para sair aperte 2.\n");
+                    rewind(stdin);
+                    opcao = _getch();
+                } while (opcao != '1', opcao != '2');
+            } while (opcao != '2');
 
             break;
-        }
-
-        if (opcao == '5') {
+            case '5':
+            return 0;
             break;
         }
 
     } while (true);
-
-    return 0;
 }
 
 void busca(struct cadastro a, int b) {
