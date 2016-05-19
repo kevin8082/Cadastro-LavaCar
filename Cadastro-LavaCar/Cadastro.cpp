@@ -90,7 +90,8 @@ int main() {
                     printf("Para criar outro cadastro aperte 1 e para sair aperte 2.\n");
                     rewind(stdin);
                     opcao = _getch();
-                } while (opcao != '1', opcao != '2');
+                } while ( !(opcao == '1' || opcao == '2'));
+
             } while (opcao != '2');
 
             break;
@@ -114,7 +115,7 @@ int main() {
                     printf("Para realizar outra busca aperte 1 e para sair aperte 2.\n");
                     rewind(stdin);
                     opcao = _getch();
-                } while (opcao != '1', opcao != '2');
+                } while (!(opcao == '1' || opcao == '2'));
             } while (opcao != '2');
 
             break;
@@ -162,7 +163,7 @@ int main() {
                     printf("Para deletar outro cadastro aperte 1 e para sair aperte 2.\n");
                     rewind(stdin);
                     opcao = _getch();
-                } while (opcao != '1', opcao != '2');
+                } while (!(opcao == '1' || opcao == '2'));
             } while (opcao != '2');
 
             break;
@@ -178,18 +179,17 @@ void busca(struct cadastro a, int b) {
     printf("%i - %-2s - %-2s - %-2s - %-2s - %-2s - %.2f\n", b, a.nome, a.telefone, a.cpf, a.placa, a.servico, a.valor);
 }
 
-char limpa_n(char a[], int b) {
+
+void limpa_n(char a[], int b) {
     for (int i = 0; i < b; i++) {
         if (a[i] == '\n') {
             a[i] = '\0';
         }
     }
-    return a[b];
 }
 
 char limpa_char(char a[], int b) {
     for (int i = 0; i < b; i++) {
         a[i] = '\0';
     }
-    return a[b];
 }
