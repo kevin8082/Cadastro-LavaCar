@@ -13,8 +13,8 @@ struct cadastro {
 };
 
 void busca(struct cadastro a, int b);
-char limpa_n(char a[], int b);
-char limpa_char(char a[], int b);
+void limpa_n(char a[], int b);
+void limpa_char(char a[], int b);
 
 int main() {
 
@@ -90,7 +90,7 @@ int main() {
                     printf("Para criar outro cadastro aperte 1 e para sair aperte 2.\n");
                     rewind(stdin);
                     opcao = _getch();
-                } while ( !(opcao == '1' || opcao == '2'));
+                } while (!(opcao == '1' || opcao == '2'));
 
             } while (opcao != '2');
 
@@ -188,7 +188,7 @@ void limpa_n(char a[], int b) {
     }
 }
 
-char limpa_char(char a[], int b) {
+void limpa_char(char a[], int b) {
     for (int i = 0; i < b; i++) {
         a[i] = '\0';
     }
