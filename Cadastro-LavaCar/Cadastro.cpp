@@ -91,7 +91,6 @@ int main() {
                     rewind(stdin);
                     opcao = _getch();
                 } while (!(opcao == '1' || opcao == '2'));
-
             } while (opcao != '2');
 
             break;
